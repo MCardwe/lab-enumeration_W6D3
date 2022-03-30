@@ -49,10 +49,13 @@ describe('Cinema', function () {
     const actual = cinema.filterByRelease(2017);
     assert.deepStrictEqual(actual, [bladeRunner, dunkirk, trainspotting])
   });
+
   it('should be able to check whether there are no films from a particular year', function() {
     const actual = cinema.checkIfHasFilmByRelease(2010);
     assert.strictEqual(actual, false);
+
   });
+
   it('should be able to check whether all films are over a particular length', function () {
     const actual = cinema.allDurationOver(90);
     assert.strictEqual(actual, true);
@@ -63,4 +66,8 @@ describe('Cinema', function () {
       assert.strictEqual(actual, 622)
   });
 
+  it('should be able to filter films by property', function(){
+    const actual = cinema.filmsByProperty('genre', 'sci-fi');
+    assert.ddeepStrictEqual(actual, [bladeRunner]);
+  })
 });
